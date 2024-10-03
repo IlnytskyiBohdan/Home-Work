@@ -1,7 +1,7 @@
 //  DZ 4.1
 
-const name = [prompt("ім'я користувача:")];
-const firstLetter = name[0].charAt(0).toUpperCase() + name[0].slice(1);
+const name = prompt("ім'я користувача:");
+const firstLetter = name.charAt(0).toUpperCase();
 
 alert(`Hello, ${firstLetter}${name.slice(1)}! How are you?`);
 

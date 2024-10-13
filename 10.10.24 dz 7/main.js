@@ -30,26 +30,43 @@ console.log(multiplyCurry(5)(2));
 
 function promptForNumber() {
   let number;
-  let truNumber = false;
 
   for (let i = 0; i < 10; i++) {
     number = +prompt("Введіть число більше 100:");
 
-    if (number <= 100) {
-      alert("Спробуй ще! Ти зможеш!");
-    } else {
-      truNumber = true;
-      break;
+    if (number > 100) {
+      alert("Останнє введене число: " + number);
+      return;
     }
+
+    alert("Спробуй ще! Ти зможеш!");
 
     if (i === 9) {
-      alert("Ви досягли максимуму спроб!");
+      alert("Ви досягли максимуму спроб! Останнє введене число: " + number);
     }
-  }
-
-  if (truNumber) {
-    alert("Останнє введене число: " + number);
   }
 }
 
 promptForNumber();
+
+// function promptForNumber() {
+//   let number;
+
+//   for (let i = 0; i < 10; i++) {
+//     number = +prompt("Введіть число більше 100:");
+
+//     if (number <= 100) {
+//       alert("Спробуй ще! Ти зможеш!");
+//     }
+
+//     if (i === 9) {
+//       alert("Ви досягли максимуму спроб!");
+//     }
+//   }
+
+//   if (truNumber) {
+//     alert("Останнє введене число: " + number);
+//   }
+// }
+
+// promptForNumber();

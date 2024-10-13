@@ -51,12 +51,16 @@ promptForNumber();
 
 // function promptForNumber() {
 //   let number;
+//   let truNumber = false;
 
 //   for (let i = 0; i < 10; i++) {
 //     number = +prompt("Введіть число більше 100:");
 
 //     if (number <= 100) {
 //       alert("Спробуй ще! Ти зможеш!");
+//     } else {
+//       truNumber = true;
+//       break;
 //     }
 
 //     if (i === 9) {

@@ -32,22 +32,48 @@ function promptForNumber() {
   let number;
 
   for (let i = 0; i < 10; i++) {
-    number = +prompt("Введіть число більше 100:");
+    let input = prompt("Введіть число більше 100:");
 
-    if (number > 100) {
-      alert("Останнє введене число: " + number);
+    if (isNaN(input) || input === null || input.trim() === "") {
+      alert("Ви ввели некоректне значення: " + input);
       return;
     }
 
-    alert("Спробуй ще! Ти зможеш!");
+    number = +input;
 
-    if (i === 9) {
-      alert("Ви досягли максимуму спроб! Останнє введене число: " + number);
+    if (number > 100) {
+      alert("Останнє введене число: " + number);
+      return; 
     }
+
+    alert("Число повинно бути більше 100. Спробуйте ще раз.");
   }
+
+  alert("Ви досягли максимального кількості спроб. Останнє введене число: " + number);
 }
 
 promptForNumber();
+
+// function promptForNumber() {
+//   let number;
+
+//   for (let i = 0; i < 10; i++) {
+//     number = +prompt("Введіть число більше 100:");
+
+//     if (number > 100) {
+//       alert("Останнє введене число: " + number);
+//       return;
+//     }
+
+//     alert("Спробуй ще! Ти зможеш!");
+
+//     if (i === 9) {
+//       alert("Ви досягли максимуму спроб! Останнє введене число: " + number);
+//     }
+//   }
+// }
+
+// promptForNumber();
 
 // function promptForNumber() {
 //   let number;

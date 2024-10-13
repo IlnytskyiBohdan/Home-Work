@@ -1,0 +1,55 @@
+//  DZ 7.1
+
+function createSum() {
+  let total = 0;
+
+  return function (num) {
+    total += num;
+    return total;
+  };
+}
+
+const sum = createSum();
+
+console.log(sum(4));
+console.log(sum(6));
+console.log(sum(10));
+console.log(sum(7));
+
+//  DZ 7.2
+
+function multiplyCurry(a) {
+  return (b) => {
+    return a * b;
+  };
+}
+
+console.log(multiplyCurry(5)(2));
+
+//  DZ 7.3
+
+function promptForNumber() {
+  let number;
+  let truNumber = false;
+
+  for (let i = 0; i < 10; i++) {
+    number = +prompt("Введіть число більше 100:");
+
+    if (number <= 100) {
+      alert("Спробуй ще! Ти зможеш!");
+    } else {
+      truNumber = true;
+      break;
+    }
+
+    if (i === 9) {
+      alert("Ви досягли максимуму спроб!");
+    }
+  }
+
+  if (truNumber) {
+    alert("Останнє введене число: " + number);
+  }
+}
+
+promptForNumber();

@@ -3,14 +3,14 @@
 const inputLink = document.querySelector(".inputLink");
 const navLink = document.querySelector(".navLink");
 
-let = "";
+let link = "";
 
 inputLink.addEventListener("click", function () {
   link = prompt("Пожалуйста, введите ссылку, по которой хотите перейти");
 });
 
 navLink.addEventListener("click", function () {
-location.href = link;
+  location.href = link;
 });
 
 //  DZ 12.2
@@ -18,8 +18,10 @@ location.href = link;
 const buttonBlock = document.querySelector(".buttonBlock");
 
 buttonBlock.addEventListener("click", function (event) {
-  const buttonText = event.target.textContent;
-  alert(`Клікнуто на кнопці: ${buttonText}`);
+  if (event.target.tagName === "BUTTON") {
+    const buttonText = event.target.textContent;
+    alert(`Клікнуто на кнопці: ${buttonText}`);
+  }
 });
 
 //  DZ 12.3

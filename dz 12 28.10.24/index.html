@@ -4,16 +4,39 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" />
+    <link rel="stylesheet" href="./maim.css" />
     <title>Test</title>
   </head>
-  <body style="text-align: center">
-    <div id="textBlock" style="font-size: 24px; color: black">
-      Це приклад тексту, який змінить колір при натисканні на кнопку.
+  <body>
+    <!-- 1 -->
+
+    <div>
+      <button class="inputLink">Ссылка</button>
+      <button class="navLink">Перейти</button>
     </div>
 
-    <button id="colorToggleButton">Змінити колір</button>
+    <!-- 2 -->
+    <div class="buttonBlock">
+      <button>Кнопка 1</button>
+      <button>Кнопка 2</button>
+      <button>Кнопка 3</button>
+    </div>
+
+    <!-- 3 -->
     <div>
-      <img id="randomImage" src="#" alt="#" style="height: 200px" />
+      <ul class="text-list" id="textList">
+        <li class="text-item">
+          Завдання 1 <button class="delete">Видалити</button>
+        </li>
+        <li class="text-item">
+          Завдання 2 <button class="delete">Видалити</button>
+        </li>
+        <li class="text-item">
+          Завдання 3 <button class="delete">Видалити</button>
+        </li>
+      </ul>
+      <input type="text" id="newText" placeholder="Додати нове завдання" />
+      <button id="addTextButton">Додати</button>
     </div>
   </body>
   <script src="./main.js"></script>

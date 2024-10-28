@@ -27,27 +27,39 @@ const button = document.getElementById("colorToggleButton");
 
 button.addEventListener("click", function () {
   textBlock.classList.toggle("newColor");
-  textBlock.classList.toggle("originalColor");
+
 });
 
 //  DZ 11.3
 
+// const imageFolderPath = "./img";
+
+// const images = [
+//   "1.jpg",
+//   "2.jpg",
+//   "3.jpg",
+//   "4.jpg",
+//   "5.jpg",
+//   "6.jpg",
+//   "7.jpg",
+//   "8.jpg",
+//   "9.jpg",
+// ];
+
+// const randomIndex = Math.floor(Math.random() * images.length);
+// const randomImage = images[randomIndex];
+// const imageElement = document.getElementById("randomImage");
+
+// imageElement.src = `${imageFolderPath}/${randomImage}`;
+
 const imageFolderPath = "./img";
 
-const images = [
-  "1.jpg",
-  "2.jpg",
-  "3.jpg",
-  "4.jpg",
-  "5.jpg",
-  "6.jpg",
-  "7.jpg",
-  "8.jpg",
-  "9.jpg",
-];
 
-const randomIndex = Math.floor(Math.random() * images.length);
-const randomImage = images[randomIndex];
+const randomIndex = Math.floor(Math.random() * 9) + 1;
+
+
+const randomImage = `${randomIndex}.jpg`;
+
 const imageElement = document.getElementById("randomImage");
-
 imageElement.src = `${imageFolderPath}/${randomImage}`;
+

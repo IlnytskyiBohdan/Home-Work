@@ -10,7 +10,7 @@ inputLink.addEventListener("click", function () {
 });
 
 navLink.addEventListener("click", function () {
-  window.location.href = link;
+location.href = link;
 });
 
 //  DZ 12.2

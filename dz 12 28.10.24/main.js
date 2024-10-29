@@ -35,7 +35,16 @@ addTextButton.addEventListener("click", function () {
   if (newTextItem) {
     const newTextInput = document.createElement("li");
     newTextInput.classList.add("text-item");
-    newTextInput.innerHTML = `${newTextItem} <button class="delete">Видалити</button>`;
+
+    const textNode = document.createTextNode(`${newTextItem} `);
+    newTextInput.appendChild(textNode);
+
+    const deleteButton = document.createElement("button");
+    deleteButton.classList.add("delete");
+    deleteButton.textContent = "Видалити";
+
+    newTextInput.appendChild(deleteButton);
+
     textList.appendChild(newTextInput);
     newText.value = "";
   }

@@ -1,3 +1,5 @@
+"use strict";
+
 const form = document.querySelector("form");
 
 const fields = [
@@ -33,3 +35,4 @@ form.addEventListener("submit", (event) => {
     console.log("Validation failed");
   }
 });
+

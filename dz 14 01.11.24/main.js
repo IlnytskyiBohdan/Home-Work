@@ -19,10 +19,10 @@ function updateDots() {
 }
 
 function showSlide(index) {
-    currentSlide = Math.max(0, Math.min(index, slides.length -1));
-    slider.style.transform = `translateX(${-currentSlide * 100}%)`;
-    updateButtons ();
-    updateDots ();
+  currentSlide = Math.max(0, Math.min(index, slides.length - 1));
+  slider.style.transform = `translateX(${-currentSlide * 100}%)`;
+  updateButtons();
+  updateDots();
 }
 
 function nextSlide() {

@@ -1,78 +1,82 @@
 "use strict";
 
-const todoForm = document.querySelector(".js--form");
-const todoInput = document.querySelector(".js--form__input");
-const todosWrapper = document.querySelector(".js--todos-wrapper");
+// dz 17.1
 
-let todos = JSON.parse(localStorage.getItem("todos")) || [];
-renderTodos(todos);
-
-todoForm.addEventListener("submit", (event) => {
-  event.preventDefault();
-  const text = todoInput.value.trim();
-  if (text) {
-    const todo = { text, completed: false };
-    todos.push(todo);
-    renderTodoItem(todo, todos.length - 1);
-    updateLocalStorage();
-    todoInput.value = "";
+class Calculator {
+  add(a, b) {
+    return a + b;
   }
-});
-
-todosWrapper.addEventListener("click", (event) => {
-  const task = event.target.closest(".todo-item");
-  if (!task) return;
-
-  const index = task.dataset.index;
-  const todo = todos[index];
-
-  if (event.target.classList.contains("todo-item__delete")) {
-    todos.splice(index, 1);
-    renderTodos(todos);
-  } else if (event.target.type === "checkbox") {
-    todo.completed = event.target.checked;
-    task.classList.toggle("todo-item--checked", todo.completed);
+  subtract(a, b) {
+    return a - b;
+  }
+  multiply(a, b) {
+    return a * b;
   }
 
-  updateLocalStorage();
-});
-
-function updateLocalStorage() {
-  localStorage.setItem("todos", JSON.stringify(todos));
+  divide(a, b) {
+    if (b !== 0) {
+      return a / b;
+    }
+    return null;
+  }
 }
 
-function renderTodos(todosList) {
-  const fragment = document.createDocumentFragment();
-  todosList.forEach((todo, index) => {
-    const task = createTodoItem(todo, index);
-    fragment.appendChild(task);
-  });
-  todosWrapper.replaceChildren(fragment);
+const calc = new Calculator();
+
+console.log(calc.add(5, 3));
+
+console.log(calc.subtract(10, 4));
+
+console.log(calc.multiply(3, 6));
+
+console.log(calc.divide(8, 2));
+
+// dz 17.2
+
+class Coach {
+  constructor(name, specialization, rating) {
+    this.name = name;
+    this.specialization = specialization;
+    this.rating = rating;
+  }
+  displayInfo() {
+    console.log(`Coach: ${this.name}, Specialization: ${this.specialization}, Rating: ${this.rating}`);
+  }
 }
 
-function renderTodoItem(todo, index) {
-  const task = createTodoItem(todo, index);
-  todosWrapper.appendChild(task);
+const coach1 = new Coach("John Doe", "Fitness", 4.7);
+
+const coach2 = new Coach("Alice Smith", "Yoga", 4.9);
+
+coach1.displayInfo();
+
+coach2.displayInfo();
+
+// dz 17.2
+
+class BankAccount {
+  constructor(initialBalance) {
+    this.balance = initialBalance;
+  }
+  getBalance() {
+    return this.balance;
+  }
+  deposit(amount) {
+    this.balance += amount;
+  }
+  withdraw(amount) {
+    this.balance -= amount;
+  }
 }
 
-function createTodoItem(todo, index) {
-  const task = document.createElement("li");
-  task.className = "todo-item";
-  task.dataset.index = index;
-  if (todo.completed) task.classList.add("todo-item--checked");
+const account1 = new BankAccount(1000);
 
-  const checkbox = document.createElement("input");
-  checkbox.type = "checkbox";
-  checkbox.checked = todo.completed;
+console.log(account1.getBalance());
 
-  const taskText = document.createElement("span");
-  taskText.className = "todo-item__description";
-  taskText.textContent = todo.text;
+account1.deposit(500);
 
-  const deleteButton = document.createElement("button");
-  deleteButton.className = "todo-item__delete";
-  deleteButton.textContent = "Видалити";
+console.log(account1.getBalance());
 
-  task.append(checkbox, taskText, deleteButton);
-  return task;
-}
+account1.withdraw(200);
+
+console.log(account1.getBalance());

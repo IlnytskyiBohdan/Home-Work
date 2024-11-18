@@ -1,61 +1,63 @@
 "use strict";
 
-class Student {
-  constructor(firstName, lastName, birthYear) {
-    this.firstName = firstName;
-    this.lastName = lastName;
-    this.birthYear = birthYear;
-    this.grades = [];
-    this.attendance = Array(25).fill(null);
-  }
+function Student(firstName, lastName, birthYear) {
+  this.firstName = firstName;
+  this.lastName = lastName;
+  this.birthYear = birthYear;
+  this.grades = [];
+  this.attendance = Array(25).fill(null);
 
-  getAge() {
+  this.getAge = function () {
     return new Date().getFullYear() - this.birthYear;
-  }
+  };
 
-  getAverageGrade() {
+  this.getAverageGrade = function () {
     return this.grades.reduce((sum, grade) => sum + grade, 0) / this.grades.length || 0;
-  }
+  };
 
-  markAttendance(isPresent) {
+  this.markAttendance = function (isPresent) {
     const index = this.attendance.indexOf(null);
     if (index !== -1) this.attendance[index] = isPresent;
-  }
+  };
 
-  present() {
+  this.present = function () {
     this.markAttendance(true);
-  }
+  };
 
-  absent() {
+  this.absent = function () {
     this.markAttendance(false);
-  }
+  };
 
-  getAttendanceRate() {
-    let attended = 0,
-      totalClasses = 0;
-    this.attendance.forEach((item) => {
-      if (item !== null) {
-        totalClasses++;
-        if (item) attended++;
-      }
-    });
+  this.getAttendanceRate = function () {
+    const { attended, totalClasses } = this.attendance.reduce(
+      (acc, item) => {
+        if (item !== null) {
+          acc.totalClasses++;
+          if (item) acc.attended++;
+        }
+        return acc;
+      },
+      { attended: 0, totalClasses: 0 }
+    );
+
     return totalClasses ? attended / totalClasses : 0;
-  }
+  };
 
-  summary() {
+  this.summary = function () {
     const averageGrade = this.getAverageGrade();
     const attendanceRate = this.getAttendanceRate();
     if (averageGrade > 90 && attendanceRate > 0.9) return "Молодец!";
     if (averageGrade > 90 || attendanceRate > 0.9) return "Хорошо, но можно лучше.";
     return "Редиска!";
-  }
+  };
 
-  printInfo() {
+  this.printInfo = function () {
     console.log(`Возраст: ${this.getAge()}`);
     console.log(`Средний балл: ${this.getAverageGrade()}`);
     console.log(`Итог: ${this.summary()}`);
-  }
+  };
 }
+
 
 const studentData = [
   { firstName: "Иван", lastName: "Иванов", birthYear: 2003, grades: [95, 90, 92], attendance: [true, true, true] },
@@ -63,11 +65,13 @@ const studentData = [
   { firstName: "Алексей", lastName: "Кузнецов", birthYear: 2005, grades: [60, 70, 65], attendance: [false, false, false] },
 ];
 
+
 const students = studentData.map((data) => {
   const student = new Student(data.firstName, data.lastName, data.birthYear);
   student.grades.push(...data.grades);
   data.attendance.forEach((mark) => student.markAttendance(mark));
   return student;
 });
+
 
 students.forEach((student) => student.printInfo());

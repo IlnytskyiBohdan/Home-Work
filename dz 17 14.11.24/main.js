@@ -52,7 +52,7 @@ coach1.displayInfo();
 
 coach2.displayInfo();
 
-// dz 17.2
+// dz 17.3
 
 class BankAccount {
   constructor(initialBalance) {

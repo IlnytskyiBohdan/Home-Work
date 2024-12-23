@@ -6,11 +6,9 @@ class Buttons extends Component {
     const { title, onClick, className } = this.props;
 
     return (
-      <>
-        <button onClick={onClick} className={className}>
-          {title}
-        </button>
-      </>
+      <button onClick={onClick} className={className}>
+        {title}
+      </button>
     );
   }
 }

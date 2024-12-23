@@ -25,9 +25,13 @@ class App extends Component {
 
   showResults = () => {
     const maxVotes = Math.max(...this.state.votes);
-    const winnerIndex = this.state.votes.indexOf(maxVotes);
 
-    this.setState({ winner: winnerIndex });
+    if (maxVotes > 0) {
+      const winnerIndex = this.state.votes.indexOf(maxVotes);
+      this.setState({ winner: winnerIndex });
+    } else {
+      this.setState({ winner: null });
+    }
   };
 
   resetVotes = () => {
@@ -57,4 +61,3 @@ class App extends Component {
 }
 
 export default App;
-

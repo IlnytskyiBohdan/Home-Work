@@ -6,7 +6,7 @@ class Results extends Component {
     const { winner, emojis, votes } = this.props;
 
     return (
-      winner !== null && (
+     Boolean(winner) && (
         <div className="results-container">
           <h2 className="results-title">Результати голосування:</h2>
           <p>Переможець:</p>

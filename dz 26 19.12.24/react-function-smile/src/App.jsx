@@ -22,7 +22,7 @@ const App = () => {
   const showResults = () => {
     const maxVotes = Math.max(...votes);
     const winnerIndex = votes.indexOf(maxVotes);
-    setWinner(maxVotes > 0 ? winnerIndex : null);
+    setWinner(maxVotes > 0 ? winnerIndex : null );
   };
 
   const resetVotes = () => {
